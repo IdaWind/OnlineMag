@@ -1,0 +1,995 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: sans-serif;
+  width: 100%;
+  display: block;
+  align-items: center;
+  justify-content: center;
+  background-color: #efeae8;
+  font-family: 'poppins';
+}
+a {
+  text-decoration: none;
+}
+html {
+  scroll-behavior: smooth; /* gør det mere smooth, når der klikkes på et menupunkt og der scrolles til den valgte sektion */
+  scroll-padding-top: 150px; /* gør at det ikke gemmer sig under headeren, når der scrolles */
+}
+main  {
+  margin-top: 138px; /* gør at indholdet i <main>-tagget først starter 150px nede på siden - hvilket passer med højden på headeren */
+}
+
+/* LOGO */
+.logo {
+  z-index: 1; /* z-index bruges så det ligger over dropdownmenuen, når denne bruges */
+}
+li {
+  list-style-type: none;
+}
+
+/* NAVIGATIONSBAR STARTER HER */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  height: auto;  
+  background-color: #130601;
+  width: 100%;
+  position: fixed; /* den forbliver hvor den er, når man scroller på siden */
+  top: 0; /* gør at headeren er placeret helt i toppen */
+  z-index: 5; /* gør at navigationsbaren er over alt andet, når der scrolles på siden */
+}
+.nav-links a {
+  color: #fff;
+}
+
+/* NAVBAR MENU */
+.menu {
+  display: flex;
+  gap: 1.2em; /* mellemrum/gap mellem de fire overordnede menupunkter */
+  font-size: 22px;
+}
+.menu li:hover {
+  background-color: #ffffff39;
+  border-radius: 5px; /* rundede kanter på :hover-effekten */
+  transition: ease-in-out 0.2s;
+
+}
+.menu li {
+  padding: 5px;
+}
+
+/* DROPDOWN MENUERNE FRA NAV-LINKS */
+.drop1 .drop2 .drop3 {
+  position: relative;
+}
+.dropdown { 
+  background-color: #3a1d0f;
+  position: absolute;
+  display: none;
+  top: auto; /* afstand fra nav-link til dropdownmenuens start er sat til auto, så den dropper ud fra navlink og nedad */
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 16px;
+  transition: ease-in-out 0.5s;
+}
+.dropdown li + li {
+  margin-top: 5px;
+}
+.dropdown li {
+  width: auto; /* bredden på dropdown er auto, så den tilpasser sig efter teksten i dropdownmenuerne */
+}
+.dropdown li:hover {
+  background-color: #ffffff39;
+}
+.drop1:hover .dropdown {
+  display: block;
+}
+.drop2:hover .dropdown {
+  display: block;
+}
+.drop3:hover .dropdown {
+  display: block;
+}
+
+/* RESPONSIV NAVIGATIONSMENU */
+
+/* CHECKBOX HACK */
+input[type=checkbox] {
+  display: none;
+} 
+
+/* HAMBURGER-MENU */
+.hamburger {
+  display: none; /* gør at burgermenuen ikke vises, når websiden er over den angivne max-vidde i media queries */
+  font-size: 24px;
+  font-weight: bold;
+  user-select: none; /* gør at burger-menuen er synlig hele tiden*/
+}
+
+/* MEDIA QUERIES - RESPONSIVIT LAYOUT VED MINDRE SKÆRM */
+@media (max-width: 768px) {
+ .menu {
+    display: none;
+    position: absolute;
+    background-color: #130601;
+    right: 0;
+    left: 0;
+    padding: 16px 10px;
+    font-size: 16px;
+    top: 138px; /*angiver hvor dropdownmenuen starter fra sidens top*/
+  }
+  .menu li:hover {
+    display: inline-flex;
+    background-color: #ffffff39;
+    transition: ease-in-out 0.2s;
+
+  }
+  .menu li + li {
+    margin-top: 12px;
+  }
+  input[type=checkbox]:checked ~ .menu {
+    display: block;
+  }
+  .hamburger {
+    display: block;
+    color: #fff;
+  }
+  .dropdown {
+    left: 80px;
+    font-size: 14px;
+  }
+  .dropdown li:hover {
+    background-color: #ffffff39;
+    transition: ease-in-out 0.2s;
+  }
+}
+
+
+/* STYLE AF 'UGENS ANBEFALING'-SEKTIONEN */
+.ugensAnbefaling {
+  position: relative;
+  color: #fff;
+  z-index: -1; /*Dropdownmenuen går nu henover indholdet under headeren*/
+}
+.ugensImg {
+  width: 100%; /*billedet er nu responsivt og tilpasser sig forskellige devices størrelser*/
+}
+.main-h1 {
+  position: absolute; /*Teksten skal ind over */
+  top: 20px;
+  left: 20px;
+  font-size: 75px;
+  font-family: 'poppins';
+  font-weight: bold;
+}
+.ugensAnbefaling p {
+  position: absolute;
+  top: 120px;
+  left: 28px;
+  font-size: 30px;
+}
+
+/* STYLE AF 'KLIK HER'-KNAPPEN */
+.btn {
+  position: absolute;
+  color: #fff;
+  transition: all 0.5s;
+  padding: 8px;
+  top: 350px;
+  left: 18px;
+  font-size: 23px;
+  background-color: #ffffff39;
+  border-radius: 10px;
+}
+.btn:hover {
+  background-color: #ae7538;
+  color: #fff;
+  border-radius: 10px;
+  transition: ease-out 0.3s;
+}
+
+/* Responsiv tekst og knap i 'Ugens anbefaling' */
+@media screen and (max-width: 800px) { 
+  .main-h1 {
+    font-size: 40px;
+  }
+  .ugensAnbefaling p {
+    font-size: medium;
+    top: 75px;
+    left: 22px;
+  }
+ .btn {
+    top: 250px;
+    left: 18px;
+    font-size: smaller;
+  }
+}
+
+
+/* NYESTE ARTIKLER */
+.nyeste {
+  position: inherit;
+}
+.nyeste h1 {
+  font-size: 50px;
+  text-decoration: wavy;
+  color: #3a1d0f;
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 780px) {
+  .nyeste h1 {
+    font-size: 35px;
+    text-align: center;
+    margin-right: 40px;
+  }
+}
+
+/* Cards med :hover-effekt med links til de nyeste 3 artikler */
+.wrapper-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.card {
+  position: relative;
+  width: 336px;
+  height: 432px;
+  border-radius: 15px;
+  padding: 1.5rem;
+  background: #fff;
+  display: flex;
+  align-items: flex-end; /* tekstens placering på kortet, når :hover-effekt bruges - nu placeres den i bunden af hvert card */
+  transition: 0.4s ease-out;
+  box-shadow: 0px 7px 10px #00000080;
+  margin-right: 30px;
+  margin-top: 20px;
+}
+.card:hover {
+  transform: translateX(10px); /* bruges til hvor mange pixels kortet skal "hoppe" nedad, når musen føres henover */
+}
+.card:hover:before{
+  opacity: 1;
+}
+.card:hover .info {
+  opacity: 1;
+  transform: translateY(0px);
+}
+.card:before {
+  content: "";
+  background: #00000099;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  z-index: 1;
+  transition: 0.5s;
+  opacity: 0;
+  position: absolute;
+}
+.card img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+}
+.card .info {
+  z-index: 1;
+  color: #ffffff;
+  opacity: 0; /* 'læs mere'-knappen vises ikke medmindre musen køres henover  */
+  transform: translateY(30px);
+  transition: 0.5s;
+}
+.card .info p {
+  letter-spacing: 1px;
+  font-size: 15px;
+  margin-top: 8px;
+  margin-bottom: 5px;
+}
+.card .info button {
+  padding: 0.6rem;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  background: #ffffff39;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.5s ease-out;
+}
+.card .info button:hover {
+  background: #ae7538;
+  color: #ffffff;
+}
+.card .info button a {
+  color: #ffffff;
+}
+
+/* BØNNER-SIDEN */
+.section1 {
+  margin-left: 10px;
+  padding-top: 20px;
+  margin-bottom: 30px;
+  margin-right: 10px;
+}
+.section1 h1 {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+.section1 p {
+  font-size: 20px;
+}
+
+/* Typer af bønner; Arabica og robusta */
+.typer {  
+  margin-left: 10px;
+  margin-right: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  gap: 0px 48px;
+  grid-template-areas:
+    "arabica-bønnen robusta-bønnen"
+    "arabica-img robusta-img"
+    "arabica-text robusta-text";
+  width: 95%;
+}
+.arabica-bønnen { 
+  grid-area: arabica-bønnen;
+}
+.aobusta-bønnen { 
+  grid-area: robusta-bønnen; 
+}
+.arabica-img { 
+  grid-area: arabica-img;
+}
+.robusta-img { 
+  grid-area: robusta-img; 
+}
+.arabica-text { 
+  grid-area: arabica-text; 
+}
+.robusta-text { 
+  grid-area: robusta-text; 
+}
+.arabica-img img, .robusta-img img {
+  width: 100%;
+  border: 2px ridge #130601;
+}
+
+/* ristningsgrad */
+.section2 {
+  margin: 60px 10px 10px 10px;
+}
+.section2 h1 {
+  font-size: 50px;
+  margin-bottom: 5px;
+}
+.section2 p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.container {
+  display: grid; 
+  grid-template-columns: 1fr 1fr 1fr; 
+  grid-template-rows: auto; 
+  gap: 0px 50px; 
+  grid-template-areas: 
+    "lys mellem mork"
+    "lysCard mellemCard morkCard"
+    "lysText mellemText morkText"; 
+  width: 100%;
+  margin-right: 10px;
+}
+.lys { grid-area: lys; }
+.mellem { grid-area: mellem; }
+.mork { grid-area: mork; }
+.lysCard { grid-area: lysCard; }
+.mellemCard { grid-area: mellemCard; }
+.morkCard { grid-area: morkCard; }
+.lysText { grid-area: lysText; }
+.mellemText { grid-area: mellemText; }
+.morkText { grid-area: morkText; }
+
+/* ristningsgrad - kort */
+.kort {
+  height: 500px;
+  width: auto;
+  background: #ffffff;
+  border-radius: 15px;
+  padding: 1.5rem;
+  position: relative;
+  display: flex;
+  align-items: flex-end; /* tekstens placering på kortet, når :hover-effekt bruges - nu placeres den i bunden af hvert card */
+  transition: 0.4s ease-out;
+  box-shadow: 0px 7px 10px #00000080;
+  margin: 10px 10px 10px 0px;
+  margin-right: 30px;
+}
+.kort:hover:before{
+  opacity: 1;
+}
+.kort:hover .info {
+  opacity: 1;
+}
+.kort:before {
+  content: "";
+  background: #00000099;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  z-index: 1;
+  transition: 0.5s;
+  opacity: 0;
+  position: absolute;
+}
+.kort img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  top: 0;
+  left: 0;
+  border-radius: 15px;
+  position: absolute;
+}
+.kort .info {
+  z-index: 1;
+  color: #ffffff;
+  opacity: 0; /* 'læs mere'-knappen vises ikke medmindre musen køres henover  */
+  transition: 0.5s;
+}
+.kort .info p {
+  letter-spacing: 1px;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+.kort .info button {
+  padding: 0.6rem;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background: #ffffff39;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.5s ease-out;
+}
+.kort .info button:hover {
+  background: #ae7538;
+  color: #ffffff;
+}
+.kort .info button a {
+  color: #ffffff;
+}
+
+/* ristningsgrad - knap */
+.lysText button, .mellemText button, .morkText button {
+  padding: 0.6rem;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background: #ae7538;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.5s ease-out;
+  margin-bottom: 40px;
+}
+.lysText a, .mellemText a, .morkText a {
+  color: #fff;
+}
+.lysText button:hover, .mellemText button:hover, .morkText button:hover {
+  background: #130601;
+}
+
+/* ristningsgrad - tekst */
+.lysText ul, .mellemText ul, .morkText ul {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.lysText, .mellemText, .morkText {
+  margin-right: 30px;
+  text-align: center;
+}
+.lysText p, .mellemText p, .morkText p {
+  font-size: 18px;
+}
+
+/* media queries for BØNNER-siden */
+@media screen and (max-width: 780px) {
+  /*sektion1*/
+  .section1 h1, .section2 h1 {
+    font-size: 40px;
+  }
+  .section1 p {
+    font-size: 18px;
+    margin-right: 5px;
+  }
+  .typer h2 {
+    font-size: 20px;
+  }
+  .arabica-text, .robusta-text,  .section2 p {
+    font-size: 14px;
+  }
+
+  /*sektion2*/
+  .container {
+    display: grid; 
+    grid-template-columns: auto; 
+    grid-template-rows: auto; 
+    gap: 10px 10px; 
+    grid-template-areas: 
+      "lys"
+      "lysCard"
+      "lysText"
+      "mellem"
+      "mellemCard"
+      "mellemText"
+      "mork"
+      "morkCard"
+      "morkText"; 
+    width: 100%;
+    margin-right: 10px;
+  }
+}
+
+
+/* UDSTYR-SIDEN */
+.sectionEspresso {
+  margin: 0px 10px 50px 10px; /* top, højre, bund, left */
+}
+.sectionEspresso h1 {
+  font-size: 40px;
+}
+.espressomaskiner {
+  margin-right: 10px;
+}
+/* Espressomaskiner grid */
+.espressomaskine {  
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  gap: 0px 10px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "sageImg bambino"
+    "sageImg sageText";
+  width: 100%;
+  margin-top: 30px;
+}
+.bambino { 
+  grid-area: bambino;
+  font-size: 50px; 
+}
+.sageImg { 
+  grid-area: sageImg;
+  margin-right: 20px; 
+}
+.sageImg img {
+  border-radius: 20px;
+  width: 100%;
+  display: table-column;
+}
+.sageText { 
+  grid-area: sageText; 
+}
+.bambino h4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sageText p, .sageText h6 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+.sageText h6 {
+  color: #ae7538;;
+}
+.sageText button {
+  padding: 0.3rem;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s ease-out;
+  background-color: #ae7538;
+  font-size: 20px;
+}
+.sageText a {
+  color: #fff;
+}
+.sageText button:hover {
+  background-color: #130601;
+}
+
+/* Kværne */
+.sectionKvaern {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.sectionKvaern h1 {
+  font-size: 40px;
+}
+.kvaernGrid {  
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  gap: 2px 40px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "elKvaern elKvaern manKvaern manKvaern"
+    "elImg elText manImg manText";
+  width: 100%;
+}
+.elKvaern { 
+  grid-area: elKvaern;
+  font-size: 22px;
+  margin-top: 20px;
+}
+.manKvaern { 
+  grid-area: manKvaern;
+  font-size: 22px;
+  margin-top: 20px;
+}
+.elImg { grid-area: elImg; }
+.manImg { grid-area: manImg; }
+.elText { 
+  grid-area: elText;
+  justify-content: center;
+}
+.manText { 
+  grid-area: manText;
+}
+.elImg img, .manImg img {
+  max-width: 300px;
+  width: 100%;
+  min-width: 100px;
+  height: auto;
+  border-radius: 15px;
+  border: 3px #130601;
+}
+.elText button, .manText button {
+  padding: 0.3rem;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s ease-out;
+  background-color: #ae7538;
+  font-size: 20px;
+}
+.elText a, .manText a {
+  color: #fff;
+}
+.elText button:hover, .manText button:hover {
+  background-color: #130601;
+}
+.elText h5, .manText h5 {
+  color: #ae7538;
+  font-size: 1rem;
+}
+.elText p, .manText p {
+  font-size: 18px;
+  margin-bottom: 40px;
+}
+
+
+@media screen and (max-width: 1200px) {
+  .kvaernGrid {
+    justify-content: space-evenly;
+    grid-template-areas:
+    "elKvaern manKvaern"
+    "elImg manImg"
+    "elText manText";
+  }
+  .elText p, .manText p {
+    font-size: 14px;
+  }
+}
+
+/* Tilbehør */
+.sectionAcc {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.infoTilbehor {
+  margin-bottom: 40px;
+}
+.infoTilbehor h1 {
+  font-size: 40px;
+}
+.tilbehor {  
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  gap: 2px 25px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "puck fordeler wtd tamper"
+    "puckImg fordelerImg wtdImg tamperImg"
+    "puckText fordelerText wtdText tamperText";
+  width: 100%;
+}
+.puck { grid-area: puck; }
+.fordeler { grid-area: fordeler; }
+.wtd { grid-area: wtd; }
+.tamper { grid-area: tamper; }
+.puckImg { grid-area: puckImg; }
+.fordelerImg { grid-area: fordelerImg; }
+.wtdImg { grid-area: wtdImg; }
+.tamperImg { grid-area: tamperImg; }
+.puckText { grid-area: puckText; }
+.fordelerText { grid-area: fordelerText; }
+.wtdText { grid-area: wtdText; }
+.tamperText { grid-area: tamperText; }
+.puckImg img, .fordelerImg img, .wtdImg img, .tamperImg img {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 20px;
+  min-width: 260px;
+}
+
+/* tilbehør-grid ekstra breakpoint */
+@media screen and (max-width: 1100px) {
+  .tilbehor {
+    display: grid; 
+    grid-template-columns: auto; 
+    grid-template-rows: auto; 
+    gap: 10px 10px; 
+    grid-template-areas: 
+      "puck fordeler"
+      "puckImg fordelerImg"
+      "puckText fordelerText" 
+      "wtd tamper"
+      "wtdImg tamperImg"
+      "wtdText tamperText";
+    width: 100%;
+    margin-right: 10px;
+  }
+}
+
+/* media queries for UDSTYR-siden */
+@media screen and (max-width: 750px) {
+  /*intro*/
+  .espressomaskiner p {
+    font-size: 14px;
+  }
+  .espressomaskiner h3 {
+    font-size: 16px;
+  }
+  /*Sage Bambino espressomaskine*/
+  .sageText p {
+    font-size: 12px;
+  }
+  .bambino h4 {
+    font-size: 20px;
+    align-content: center;
+    justify-content: unset;
+  }
+  .sageText h6 {
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  .sageText button {
+    padding: 0.2rem;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+  .espressomaskine { /* når skærmen bliver lille vises det kun i én kolonne */
+    grid-template-areas:
+    "bambino"
+    "sageImg"
+    "sageText";
+  }
+  .sageImg {
+    margin: 10px;
+  }
+
+  /*Kværn*/
+  .elKvaern h4, .manKvaern h4 {
+    font-size: 16px;
+  }
+  .elImg img, .manImg img {
+    min-width: 200px
+  }
+  .elText p, .manText p {
+    font-size: 12px;
+  }
+  .elText button, .manText button {
+    padding: 0.2rem;
+    font-size: 12px;
+    border-radius: 3px;
+  }
+
+  /*Tilbehør*/
+  .tilbehor {
+    display: grid; 
+    grid-template-columns: auto; 
+    grid-template-rows: auto; 
+    gap: 10px 10px; 
+    grid-template-areas: 
+      "puck"
+      "puckImg"
+      "puckText"
+      "fordeler"
+      "fordelerImg"
+      "fordelerText"
+      "wtd"
+      "wtdImg"
+      "wtdText"
+      "tamper"
+      "tamperImg"
+      "tamperText"; 
+    width: 100%;
+    margin-right: 10px;
+  }
+  .puckImg img, .fordelerImg img, .wtdImg img, .tamperImg img {
+    max-width: 300px;
+  }
+}
+
+
+/* TIPS-SIDEN */
+.ugensanbefaling {
+  margin: 10px 10px 10px 10px;
+}
+.ugens {  
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  gap: 20px 50px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "infoTekst poseImg udseendeText bønneImg"
+    "typeText  brygImg smagText kopImg";
+  width: 100%;
+}
+.poseImg { grid-area: poseImg; }
+.bønneImg { grid-area: bønneImg; }
+.brygImg { grid-area: brygImg; }
+.kopImg { grid-area: kopImg; }
+.infoTekst { grid-area: infoTekst; }
+.udseendeText { grid-area: udseendeText; }
+.typeText { grid-area: typeText; }
+.smagText { grid-area: smagText; }
+.ugens img {
+  max-width: 200px;
+  border-radius: 15px;
+  margin-top: 20px;
+}
+.ugensInfo {
+  margin-bottom: 30px;
+}
+.ugensInfo h1 {
+  font-size: 40px;
+}
+.ugensInfo h3 {
+  font-size: 23px;
+  color: #ae7538;
+}
+.ugensInfo h5 {
+  font-size: 18px;
+}
+
+.koeb {
+  margin-top: 25px;
+  font-size: 20px;
+}
+.koeb button {
+  padding: 0.5rem;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.5s ease-out;
+  background-color: #ae7538;
+  font-size: 18px;
+}
+.koeb a {
+  color: #fff;
+}
+.koeb button:hover {
+  background-color: #130601;
+}
+
+/* media queries for UDSTYR-siden */
+@media screen and (max-width: 750px) {
+  .ugens p {
+    font-size: 14px;
+  }
+  .ugens h2 {
+    font-size: 18px;
+  }
+  .ugens {
+    grid-template-areas:
+    "infoTekst poseImg"
+    "udseendeText bønneImg"
+    "typeText  brygImg"
+    "smagText kopImg";
+  }
+}
+
+/* FOOTER */
+footer {
+  background-color: #130601;
+  position: relative;
+  bottom: 0; /* footeren er i bunden */
+  width: 100%; /* er helt ude til kanten i bredden  - responsiv */
+  color: #c9cfae;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 20px; /* afstand fra footerens top til den sidste del af indholdet på siden */
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+  justify-content: center;
+}
+footer ul{
+	list-style: none;
+}
+.footer-col{
+  padding: 0 30px; /* afstand mellem de to kolonner */
+}
+.footer-col h4{ /* overskrifterne i footeren */
+ font-size: 15px;
+ color: #e3dfd3;
+ margin-bottom: 15px;
+ font-weight: 500;
+ position: relative;
+}
+.footer-col h4::before{ /* stregen mellem overskrifter og content i footeren */
+ content: '';
+ position: absolute;
+ left: 0;
+ bottom: -8px; /* gør at stregen under "overskrifterne" i footeren */
+ background-color: #3a1d0f;
+ height: 2px;
+ width: 60px;
+}
+.footer-col ul li a{ /* punkterne i footeren */
+ font-size: 13px;
+ text-decoration: none;
+ color: #e3dfd3;
+ display: block;
+ transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+ color: #ae7538;
+ padding-left: 5px; /* når musen føres henover rykkes teksten lidt til venstre */
+}
+.footer-col .social-links a{ /* sociale medier-links i footeren */
+ display: inline-block;
+ height: 30px;
+ width: 30px;
+ margin:0 10px 10px 0;
+ text-align: center;
+ line-height: 30px;
+ border-radius: 50%;
+ color: #ae7538;
+ transition: all 0.5s ease;
+ background-color: #fff;
+}
+.footer-col .social-links a:hover{
+ color: #fff;
+ background-color: #ae7538;
+}

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="beskrivelse" content="Forside på et online magasin omkring kaffe, det at være barista, information omkring bønner, udstyr, herunder espressomaskiner, kværne og tilbehør.">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://kit.fontawesome.com/30b45f852f.js" crossorigin="anonymous"></script>
+  <title>Online Magasin - Ida Wind Hansen</title>
+</head>
+<body>
+  <!-- HEADER -->
+  <nav class="navbar">
+    <!-- LOGO -->
+    <div class="logo"><a href="index.html"><img src="img/logo.png" alt="logo" width="180px"></a></div>
+
+    <ul class="nav-links">
+
+      <!-- CHECKBOX HACK I STEDET FOR JS -->
+      <input type="checkbox" id="checkbox_toggle" />
+      <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+
+      <!-- NAVIGATIONSMENU -->
+      <div class="menu">
+
+        <li><a href="index.html">Hjem</a></li>
+
+        <li class="drop1">
+          <a href="bønner.html">Bønner</a>
+
+          <!-- dropdown menu 1 - BØNNER -->
+          <ul class="dropdown">
+            <li><a href="bønner.html#typer">Typer af Bønner</a></li> <!-- for at linke til en specifik sektion på en bestemt side, skriver vi sidens navn (bønner.html) efterfulgt af et '#' med det 'id', sektionen har -->
+            <li><a href="bønner.html#ristningsgrad">Ristningsgrad</a></li>
+          </ul>
+        </li>
+
+        <li class="drop2">
+          <a href="udstyr.html">Udstyr</a>
+
+          <!-- dropdown menu 2 - UDSTYR -->
+          <ul class="dropdown">
+            <li><a href="udstyr.html#espressomaskiner">Espressomaskiner</a></li>
+            <li><a href="udstyr.html#kvaern">Kværne</a></li>
+            <li><a href="udstyr.html#tilbehor">Tilbehør</a></li>
+          </ul>
+        </li>
+
+        <li class="drop3">
+          <a href="tips.html">Tips & Tricks</a>
+
+          <!-- dropdown menu 3 - TIPS OG TRICKS-->
+          <ul class="dropdown">
+            <li><a href="tips.html#ugensanbefaling">Ugens anbefaling</a></li>
+          </ul>
+        </li>
+      </div>
+    </ul>
+  </nav>
+
+  <main>
+    <section>
+      <a href="tips.html#ugensanbefaling" class="btn">Klik her for at læse denne uges anbefaling</a>
+
+      <!-- UGENS ANBEFALING -->
+      <article class="ugensAnbefaling">
+        <img src="img/ugensAnbefaling.png" class="ugensImg" alt="ugensAnbefaling">
+        <div class="main-h1">UGENS ANBEFALING</div>
+        <div class="anbefaling">
+          <p>Nye anbefalinger til dit <i>Coffee Corner </i>hver uge </p>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <!-- DE NYESTE ARTIKLER -->
+      <article class="nyeste">
+        <h1>NYESTE ARTIKLER</h1>
+        <div class="wrapper-cards">
+          <!-- nyeste artikel 1 -->
+          <div class="card">
+            <img src="img/card1.png" alt="espressomaskine">
+            <div class="info">
+              <h2>Espressomaskiner</h2>
+              <p>Find en espressomaskine til dit behov</p>
+              <button><a href="udstyr.html#espressomaskiner">Læs mere her</a></button>
+            </div>
+          </div>
+
+          <!-- nyeste artikel 2 -->
+          <div class="card">
+            <img src="img/arabica.png" alt="typer af bønenr">
+            <div class="info">
+              <h2>Typer af bønner</h2>
+              <p>Forskellen på Arabica-bønner og Robustabønner</p>
+              <button><a href="bønner.html#typer">Læs mere her</a></button>
+            </div>
+          </div>
+
+          <!-- nyeste artikel 3 -->
+          <div class="card">
+            <img src="img/card3.png" alt="anbefaling">
+            <div class="info">
+              <h2>Ugens anbefaling</h2>
+              <p>Månedens bønne ved <i>Berry&Bean</i>: Smag af banankage og karamel</p>
+              <button><a href="tips.html#ugensanbefaling">Læs mere her</a></button>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+  
+  <footer>
+    <div class="container-footer">
+      <div class="row">
+        <div class="footer-col">
+          <h4>Menu</h4>
+          <ul>
+            <li><a href="index.html">Hjem</a></li>
+            <li><a href="bønner.html">Bønner</a></li>
+            <li><a href="udstyr.html">Udstyr</a></li>
+            <li><a href="tips.html">Tips og Tricks</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Sociale medier</h4>
+          <div class="social-links"> <!-- 'target='_blank''-attributten bruges, så linksne åbnes i et nyt faneblad -->
+            <a href="https://www.facebook.com/Brugerdefineretbrugernavn/?locale=da_DK" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://www.linkedin.com/in/ida-wind-hansen-51a93020b/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.instagram.com/idawindhansen/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-betal/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script> <!-- sociale medier ikoner -->
+
+</body>
+
+</html>
